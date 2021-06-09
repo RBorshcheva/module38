@@ -10,7 +10,6 @@ export const addToStorage = function (obj, key) {
   localStorage.setItem(key, JSON.stringify(storageData));
 };
 
-//обновление статуса задачи при ёё переносе по спискам
 export const updateInToStorage = function (objIdkey, objIdValue, key, param, value) {
   const storageData = getFromStorage(key);
   if(storageData !== null)
@@ -27,13 +26,10 @@ export const updateInToStorage = function (objIdkey, objIdValue, key, param, val
 };
 
 export const generateUser = function (user) {
-  //localStorage.clear();
- // const testUser = new User("test", "qwerty123", n);
  JSON.stringify(user); 
   User.save(user);
 };
 
-//считываем все задачи
 export const getTasksFromStorage = function (user, listNum) {
   let allTasks = JSON.parse(localStorage.getItem("task") || "[]");
   let returnList = [];

@@ -1,9 +1,6 @@
-//import 'popper.js/dist/umd/popper.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
-//import 'jquery/dist/jquery.min.js';
 import $ from 'jquery';
-//import 'bootstrap/js/dist/dropdown';
 
 import "./styles/style.css";
 import taskFieldTemplate from "./templates/taskField.html";
@@ -19,11 +16,6 @@ export const appState = new State();
 
 const loginForm = document.querySelector("#app-login-form");
 
-//сгенерили изначально
-//generateUser(new User("admin","123",true));
-//generateUser(new User("test","123",false));
-
-//обработчики событий
 loginForm.addEventListener("submit", function (e) {
   e.preventDefault();
   const formData = new FormData(loginForm);
@@ -36,7 +28,6 @@ loginForm.addEventListener("submit", function (e) {
   if(authUser(login, password))
   {
     fieldHTMLContent = taskFieldTemplate;
-      //работа с задачами
     document.querySelector("#content").innerHTML = taskFieldTemplate;
     const taskController = new TaskController(appState.currentUser.id, getTasksFromStorage(appState.currentUser.id, 0), getTasksFromStorage(appState.currentUser.id, 1), getTasksFromStorage(appState.currentUser.id, 2));
   }
